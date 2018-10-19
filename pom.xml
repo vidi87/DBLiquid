@@ -146,7 +146,8 @@
                     <artifactId>liquibase-maven-plugin</artifactId>
                     <version>${liquibase.version}</version>
                     <configuration>
-                        <propertyFile>src/main/resources/liquibase/liquibase.properties</propertyFile>
+                        <propertyFile>liquidbase.properties</propertyFile>
+                        <changeLogFile>db.changelog-master.xml</changeLogFile>
                     </configuration>
                     <executions>
                         <execution>

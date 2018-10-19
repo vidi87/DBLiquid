@@ -9,7 +9,6 @@ public class Sample {
 
       public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-context.xml");
-
        StudentDAOImpl studentDAO = context.getBean(StudentDAOImpl.class);
         Student stud = new Student();
         stud.setName("Marko");
