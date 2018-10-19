@@ -4,22 +4,19 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "student")
+@Table
 public class Student implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     private long id;
-
+    @Column
     private String name;
-
+    @Column
     private int age;
-
+    @Column
     private String phone;
-
-    @ManyToOne
-    @JoinColumn(name="group_id")
-    private Group group;
 
     public long getId() {
         return id;

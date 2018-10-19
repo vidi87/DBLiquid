@@ -6,9 +6,12 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Component;
 
-@Repository
+import javax.transaction.Transactional;
+
+@Component
+@Transactional
 public class StudentDAOImpl implements StudentDAO {
 
     private static final Logger LOG = LogManager.getLogger(StudentDAOImpl.class);
