@@ -4,18 +4,16 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table
 public class Student implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
     private long id;
-    @Column
+
     private String name;
-    @Column
+
     private int age;
-    @Column
+
     private String phone;
 
     public long getId() {

@@ -3,7 +3,6 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:tx="http://www.springframework.org/schema/tx"
-       xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
         http://www.springframework.org/schema/context
@@ -13,9 +12,9 @@
         http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 
-    <tx:annotation-driven/>
+     <tx:annotation-driven proxy-target-class="true" />
 
-    <context:component-scan base-package="com.frameforks.sqliteLiquid"></context:component-scan>
+    <context:component-scan base-package="com.frameforks.sqliteLiquid"/>
     <!-- bean definitions go here -->
 
     <!--<bean id="stDAOImpl" class="com.frameforks.sqliteLiquid.DAO.impl.StudentDAOImpl"/>-->
@@ -32,7 +31,7 @@
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.hbm2ddl.auto">update</prop>
-                <prop key="hibernate.dialect"> org.hibernate.dialect.MySQLDialect</prop>
+                <prop key="hibernate.dialect"> org.hibernate.dialect.MySQL57Dialect</prop>
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.format_sql">true</prop>
             </props>
@@ -47,8 +46,9 @@
     </bean>
 
 
-    <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager"
-          p:sessionFactory-ref="sessionFactory"/>
+    <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
 
 </beans>
 

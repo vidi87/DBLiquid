@@ -16,6 +16,7 @@
         <hibernate.version>5.3.6.Final</hibernate.version>
         <log4j.version>1.2.17</log4j.version>
         <c3p0.version>0.9.5.2</c3p0.version>
+        <liquibase.version>3.6.2</liquibase.version>
     </properties>
 
     <dependencies>
@@ -119,6 +120,16 @@
             <version>${c3p0.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+            <version>${liquibase.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.liquibase.ext</groupId>
+            <artifactId>liquibase-hibernate5</artifactId>
+            <version>3.6</version>
+        </dependency>
 
         <!--<dependency>-->
             <!--<groupId>org.springframework</groupId>-->
@@ -127,5 +138,27 @@
         <!--</dependency>-->
 
     </dependencies>
+
+        <build>
+            <plugins>
+                <plugin>
+                    <groupId>org.liquibase</groupId>
+                    <artifactId>liquibase-maven-plugin</artifactId>
+                    <version>${liquibase.version}</version>
+                    <configuration>
+                        <propertyFile>src/main/resources/liquibase/liquibase.properties</propertyFile>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <phase>process-resources</phase>
+                            <goals>
+                                <goal>update</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </build>
+
 
 </project>

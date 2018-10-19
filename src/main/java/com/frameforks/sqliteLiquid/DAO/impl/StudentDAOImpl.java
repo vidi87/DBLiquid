@@ -6,12 +6,11 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 
-@Component
-@Transactional
+@Repository
 public class StudentDAOImpl implements StudentDAO {
 
     private static final Logger LOG = LogManager.getLogger(StudentDAOImpl.class);
@@ -19,7 +18,8 @@ public class StudentDAOImpl implements StudentDAO {
     @Autowired
     private SessionFactory sessionFactory;
 
-    public void add(Student student) {
+   @Transactional
+       public void add(Student student) {
         sessionFactory.getCurrentSession().save(student);
         LOG.info("Student saved successfully, student details - " + student.toString());
     }
