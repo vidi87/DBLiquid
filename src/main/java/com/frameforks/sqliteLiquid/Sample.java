@@ -7,7 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Sample {
 
-      public static void main(String[] args) {
+    public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-context.xml");
        StudentDAOImpl studentDAO = context.getBean(StudentDAOImpl.class);
         Student stud = new Student();
@@ -18,3 +18,5 @@ public class Sample {
         studentDAO.add(stud);
     }
 }
+
+

@@ -18,14 +18,6 @@
     <context:component-scan base-package="com.frameforks.sqliteLiquid"/>
     <!-- bean definitions go here -->
 
-    <!--<bean id="stDAOImpl" class="com.frameforks.sqliteLiquid.DAO.impl.StudentDAOImpl"/>-->
-
-    <!--<bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">-->
-        <!--<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>-->
-        <!--<property name="prefix" value="/"/>-->
-        <!--<property name="suffix" value=".jsp"/>-->
-    <!--</bean>-->
-
     <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="packagesToScan" value="com.frameforks.sqliteLiquid.entity"/>
